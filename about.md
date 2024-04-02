@@ -60,9 +60,9 @@
 
 - Epozen
 <html lang="en">
-    <div class="trigger"><a class="page-link" href="/LogManagementSystem/">Log Management System</a></div>
-    <div class="trigger"><a class="page-link" href="/LogMonitoringSystem/">Log Monitoring System</a></div>
-    <div class="trigger"><a class="page-link" href="/AnomalyDetectionSystem/">Anomaly Detection System</a></div>
+    <div class="trigger"><a class="page-link" href="/company/epozen/LogManagementSystem/">Log Management System</a></div>
+    <div class="trigger"><a class="page-link" href="/company/epozen/LogMonitoringSystem/">Log Monitoring System</a></div>
+    <div class="trigger"><a class="page-link" href="/company/epozen/AnomalyDetectionSystem/">Anomaly Detection System</a></div>
 </html>
 
 - Tving
