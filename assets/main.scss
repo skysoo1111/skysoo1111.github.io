@@ -178,8 +178,121 @@ body {
 .sidebar-subtitle {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.75);
-    margin: 0;
+    margin: 0 0 12px 0;
     position: relative;
+}
+
+.sidebar-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.12);
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: white;
+        text-decoration: none;
+    }
+
+    &:visited {
+        color: rgba(255, 255, 255, 0.85);
+    }
+}
+
+.sidebar-section {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-top: 16px;
+    border: 1px solid var(--color-border);
+}
+
+.sidebar-section-title {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin: 0 0 12px 0 !important;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-category-list {
+    list-style: none;
+    margin: 0 !important;
+    padding: 0;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+    }
+
+    .cat-name {
+        font-size: 0.88rem;
+        color: var(--color-text);
+        font-weight: 500;
+    }
+
+    .cat-count {
+        font-size: 0.75rem;
+        color: var(--color-text-light);
+        background: var(--color-surface-hover);
+        padding: 1px 8px;
+        border-radius: 10px;
+        font-weight: 500;
+    }
+}
+
+.sidebar-recent-list {
+    list-style: none;
+    margin: 0 !important;
+    padding: 0;
+
+    li {
+        padding: 8px 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+    }
+
+    a {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--color-text);
+        line-height: 1.4;
+        text-decoration: none;
+        transition: var(--transition);
+
+        &:hover {
+            color: var(--color-primary);
+        }
+
+        &:visited {
+            color: var(--color-text);
+        }
+    }
+
+    time {
+        font-size: 0.72rem;
+        color: var(--color-text-light);
+        margin-top: 2px;
+        display: block;
+    }
 }
 
 @keyframes morphBlob {
@@ -756,6 +869,14 @@ body {
 
     .sidebar-subtitle {
         font-size: 0.78rem;
+    }
+
+    .sidebar-github {
+        display: none;
+    }
+
+    .sidebar-section {
+        display: none;
     }
 }
 
