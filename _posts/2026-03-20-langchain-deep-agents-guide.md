@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LangChain Deep Agents 완전 가이드 - 계획하고 기억하고 위임하는 AI 에이전트의 등장"
-date: 2026-03-20 15:00:00 +0900
+date: 2026-03-20 10:00:00 +0900
 categories: [AI]
 tags: [langchain, deep-agents, langgraph, ai-agent, python, nvidia]
 ---
