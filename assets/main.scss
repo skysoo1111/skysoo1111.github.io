@@ -496,6 +496,30 @@ body {
     color: var(--color-text-muted);
 }
 
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.post-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    background: rgba(79, 70, 229, 0.06);
+    border: 1px solid rgba(79, 70, 229, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: var(--transition);
+
+    &:hover {
+        background: rgba(79, 70, 229, 0.12);
+        border-color: rgba(79, 70, 229, 0.3);
+    }
+}
+
 .post-content {
     font-size: 1rem;
     line-height: 1.85;
