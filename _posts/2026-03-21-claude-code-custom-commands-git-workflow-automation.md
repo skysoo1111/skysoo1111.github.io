@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Claude Code 커스텀 명령어 가이드: Git 워크플로우 자동화"
-date: 2026-03-21 14:00:00 +0900
+date: 2026-03-21 00:00:00 +0900
 categories: [DevOps]
 tags: [claude, claude-code, claude-code-커스텀, commands, commit, custom-commands, git, git-워크플로우-자동화, push, 자동화]
 source_url: "https://velog.io/@skysoo/Claude-Code-%EC%BB%A4%EC%8A%A4%ED%85%80-%EB%AA%85%EB%A0%B9%EC%96%B4-%EA%B0%80%EC%9D%B4%EB%93%9C-Git-%EC%9B%8C%ED%81%AC%ED%94%8C%EB%A1%9C%EC%9A%B0-%EC%9E%90%EB%8F%99%ED%99%94"
