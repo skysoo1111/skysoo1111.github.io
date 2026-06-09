@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Claude Code 커스텀 명령어 가이드: Git 워크플로우 자동화"
+description: "이 문서는 ~/.claude/commands에 정의된 두 가지 커스텀 명령어인 commit.md와 push.md를 소개합니다. 이 명령어들은 Claude Code에서…"
 date: 2026-03-21 00:00:00 +0900
 categories: [DevOps]
 tags: [claude, claude-code, claude-code-커스텀, commands, commit, custom-commands, git, git-워크플로우-자동화, push, 자동화]

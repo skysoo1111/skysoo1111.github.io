@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "디자인 패턴 정리 - Spring 환경에서의 Singleton, Strategy, Factory 외 주요 패턴 실전 가이드"
+description: "디자인 패턴(Design Pattern)은 소프트웨어 설계에서 반복적으로 등장하는 문제에 대한 검증된 해결책이다. 1994년 Erich Gamma 외 3인(Gang of…"
 date: 2026-03-27 10:00:00 +0900
 categories: [Java]
 tags: [java, spring, design-pattern, singleton, strategy, factory, proxy, observer, template-method, gof]

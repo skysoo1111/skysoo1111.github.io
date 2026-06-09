@@ -51,7 +51,9 @@ layout: default
                             <h3 class="post-card-title">
                                 <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
                             </h3>
-                            {%- if post.excerpt -%}
+                            {%- if post.description -%}
+                            <p class="post-card-excerpt">{{ post.description | strip_html }}</p>
+                            {%- elsif post.excerpt -%}
                             <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
                             {%- endif -%}
                         </div>

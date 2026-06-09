@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "tmux를 활용한 Claude Code 사용법 - 터미널 멀티플렉서로 AI 코딩 극대화하기"
+description: "Claude Code는 터미널에서 동작하는 AI 코딩 에이전트다. 그런데 하나의 터미널 세션에서 하나의 에이전트만 돌리고 있다면, Claude Code의 잠재력을 절반도…"
 date: 2026-03-19 15:30:00 +0900
 categories: [Dev Tools]
 tags: [tmux, claude-code, productivity, terminal, ai-coding]

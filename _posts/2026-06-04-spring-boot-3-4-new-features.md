@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Boot 3.4 신기능 완벽 정리"
+description: "Spring Boot 3.4는 구조화된 로깅, Graceful Shutdown 기본 활성화, Virtual Threads 확장, 컨테이너 지원 강화, Actuator…"
 date: 2026-06-04 17:02:15 +0900
 categories: [Spring Boot, Java]
 tags: [Spring Boot, Spring Framework, Virtual Threads, Observability, Docker Compose, Actuator]

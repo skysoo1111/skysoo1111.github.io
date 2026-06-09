@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "배포 전략 완전 가이드 - 카나리, 블루그린, 롤링, 리니어 배포"
+description: "서비스를 중단 없이 안전하게 배포하는 것은 현대 소프트웨어 운영의 핵심 과제다. 배포 전략은 \"새 버전을 어떻게, 얼마나 빠르게, 얼마나 안전하게 트래픽에 노출할…"
 date: 2026-03-27 00:00:00 +0900
 categories: [DevOps]
 tags: [deployment, canary, blue-green, rolling, linear, kubernetes, devops, cicd]

@@ -34,6 +34,10 @@ plugins:
 paginate: 9
 paginate_path: "/page:num/"
 
+# 상단 네비게이션에 노출할 페이지 (About만)
+header_pages:
+  - about.md
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "LangChain Deep Agents 완전 가이드 - 계획하고 기억하고 위임하는 AI 에이전트의 등장"
+description: "LangChain이 Deep Agents를 공식 릴리스했다. 단순한 도구 호출 루프를 넘어, 스스로 계획을 세우고 컨텍스트를 관리하며 서브에이전트에게 작업을 위임하는…"
 date: 2026-03-20 10:00:00 +0900
 categories: [AI]
 tags: [langchain, deep-agents, langgraph, ai-agent, python, nvidia]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "LangChain 생태계 주간 업데이트 - Prompt Caching, 실행 추적 강화, 배포 관리 개선"
+description: "2026년 3월 셋째 주, LangChain 생태계에 주목할 만한 업데이트가 쏟아졌다. Anthropic 프롬프트 캐싱 미들웨어 도입, LangSmith 트레이싱 정확도…"
 date: 2026-03-21 10:00:00 +0900
 categories: [AI]
 tags: [langchain, langgraph, langsmith, anthropic, prompt-caching, ai-agent, python]

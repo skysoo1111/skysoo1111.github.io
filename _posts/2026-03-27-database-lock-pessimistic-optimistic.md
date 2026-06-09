@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "DB 락 완전 가이드 - 비관적 락과 낙관적 락, 데드락 해결 전략"
+description: "다중 사용자 환경에서 동일한 데이터에 여러 트랜잭션이 동시 접근하면 데이터 불일치가 발생할 수 있다. 이를 제어하는 핵심 메커니즘이 바로 DB 락(Lock)이다."
 date: 2026-03-27 09:00:00 +0900
 categories: [Database]
 tags: [lock, pessimistic-lock, optimistic-lock, jpa, database, concurrency, deadlock]

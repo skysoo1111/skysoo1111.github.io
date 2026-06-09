@@ -557,16 +557,20 @@ body {
     gap: 6px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-text);
     text-decoration: none;
     transition: var(--transition);
+
+    &:visited {
+        color: var(--color-text);
+    }
 
     svg {
         transition: transform 0.2s ease;
     }
 
     &:hover {
-        color: var(--color-primary-dark);
+        color: var(--color-primary);
         gap: 10px;
 
         svg {

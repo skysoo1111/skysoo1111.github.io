@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Webflux + Coroutine 에서의 Scope 동작"
+description: "coroutine scope란 위에서 언급했 듯이 coroutine context를 포함한 coroutine을 실행하는 범위를 뜻한다."
 date: 2026-03-21 00:00:00 +0900
 categories: [Kotlin]
 tags: [kotlin, coroutine, webflux, spring, reactor, netty]
