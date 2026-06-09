@@ -16,8 +16,8 @@ layout: default
                     </a>
                 </div>
                 {%- if site.posts.size > 0 -%}
-                <div class="post-list">
-                    {%- for post in site.posts -%}
+                <div class="post-grid">
+                    {%- for post in paginator.posts -%}
                     <article class="post-card">
                         <div class="post-card-top">
                             <div class="post-card-meta">
@@ -55,6 +55,57 @@ layout: default
                     </article>
                     {%- endfor -%}
                 </div>
+                {%- if paginator.total_pages > 1 -%}
+                <nav class="pagination" aria-label="Pagination">
+                    {%- if paginator.previous_page -%}
+                    <a class="page-btn page-nav" href="{{ paginator.previous_page_path | relative_url }}" rel="prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        Prev
+                    </a>
+                    {%- else -%}
+                    <span class="page-btn page-nav is-disabled">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        Prev
+                    </span>
+                    {%- endif -%}
+
+                    <div class="page-numbers">
+                        {%- for page in (1..paginator.total_pages) -%}
+                        {%- if page == paginator.page -%}
+                        <span class="page-btn page-num is-active">{{ page }}</span>
+                        {%- elsif page == 1 -%}
+                        <a class="page-btn page-num" href="{{ '/' | relative_url }}">{{ page }}</a>
+                        {%- else -%}
+                        <a class="page-btn page-num" href="{{ site.paginate_path | replace: ':num', page | relative_url }}">{{ page }}</a>
+                        {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+
+                    {%- if paginator.next_page -%}
+                    <a class="page-btn page-nav" href="{{ paginator.next_page_path | relative_url }}" rel="next">
+                        Next
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                    {%- else -%}
+                    <span class="page-btn page-nav is-disabled">
+                        Next
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </span>
+                    {%- endif -%}
+                </nav>
+                {%- endif -%}
                 {%- else -%}
                 <p class="no-posts">No posts yet. Stay tuned!</p>
                 {%- endif -%}
