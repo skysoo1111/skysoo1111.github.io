@@ -15,7 +15,20 @@ layout: default
                         RSS
                     </a>
                 </div>
+
+                <div class="search-box">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="search" id="post-search" class="search-input" placeholder="포스트 검색 (제목·태그·카테고리)" autocomplete="off" aria-label="포스트 검색">
+                </div>
+                <p class="search-status" id="search-status" hidden></p>
+                <div class="post-grid search-results" id="search-results" hidden></div>
+
                 {%- if site.posts.size > 0 -%}
+                <div id="default-list">
                 <div class="post-grid">
                     {%- for post in paginator.posts -%}
                     <article class="post-card">
@@ -106,6 +119,7 @@ layout: default
                     {%- endif -%}
                 </nav>
                 {%- endif -%}
+                </div>
                 {%- else -%}
                 <p class="no-posts">No posts yet. Stay tuned!</p>
                 {%- endif -%}
@@ -164,3 +178,67 @@ layout: default
         </aside>
     </div>
 </div>
+
+<script>
+(function () {
+    var input = document.getElementById('post-search');
+    if (!input) return;
+    var defaultList = document.getElementById('default-list');
+    var results = document.getElementById('search-results');
+    var status = document.getElementById('search-status');
+    var index = [];
+
+    function esc(s) {
+        return (s || '').replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+
+    function card(p) {
+        var cat = p.category ? '<span class="post-cat-tag">' + esc(p.category) + '</span>' : '';
+        return '<article class="post-card">' +
+            '<div class="post-card-top">' +
+            '<div class="post-card-meta">' + cat +
+            '<time class="post-card-date">' + esc(p.date) + '</time>' +
+            '</div>' +
+            '<h3 class="post-card-title"><a href="' + esc(p.url) + '">' + esc(p.title) + '</a></h3>' +
+            (p.excerpt ? '<p class="post-card-excerpt">' + esc(p.excerpt) + '</p>' : '') +
+            '</div>' +
+            '<div class="post-card-footer">' +
+            '<a href="' + esc(p.url) + '" class="post-read-more">Read Article</a>' +
+            '</div>' +
+            '</article>';
+    }
+
+    function render() {
+        var q = input.value.trim().toLowerCase();
+        if (!q) {
+            if (defaultList) defaultList.hidden = false;
+            results.hidden = true;
+            status.hidden = true;
+            results.innerHTML = '';
+            return;
+        }
+        var matched = index.filter(function (p) {
+            return (p.title + ' ' + p.tags + ' ' + p.categories + ' ' + p.excerpt)
+                .toLowerCase().indexOf(q) !== -1;
+        });
+        if (defaultList) defaultList.hidden = true;
+        status.hidden = false;
+        status.textContent = '"' + input.value.trim() + '" 검색 결과 ' + matched.length + '건';
+        if (matched.length) {
+            results.hidden = false;
+            results.innerHTML = matched.map(card).join('');
+        } else {
+            results.hidden = true;
+        }
+    }
+
+    fetch('{{ "/search.json" | relative_url }}')
+        .then(function (r) { return r.json(); })
+        .then(function (data) { index = data; render(); })
+        .catch(function () { /* 검색 인덱스 로드 실패 시 기본 목록 유지 */ });
+
+    input.addEventListener('input', render);
+})();
+</script>

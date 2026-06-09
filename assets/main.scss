@@ -386,6 +386,52 @@ body {
 }
 
 // ============================================================
+// Search
+// ============================================================
+.search-box {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-light);
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+
+    &::placeholder {
+        color: var(--color-text-light);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    }
+}
+
+.search-status {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0 0 20px 0;
+}
+
+// ============================================================
 // Post Grid + Cards
 // ============================================================
 .post-grid {
