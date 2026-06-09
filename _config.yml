@@ -31,7 +31,7 @@ plugins:
   - jekyll-paginate
 
 # Pagination (jekyll-paginate v1)
-paginate: 9
+paginate: 10
 paginate_path: "/page:num/"
 
 # 상단 네비게이션에 노출할 페이지 (About만)
