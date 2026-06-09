@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Kotlin WebFlux에서 요청 처리 흐름과 코루틴 어댑터 역할 완벽 정리"
+description: "Kotlin WebFlux에서 HTTP 요청이 처리되는 전체 흐름과, Reactor와 suspend 함수를 잇는 코루틴 어댑터의 역할을 코드 예제로 정리한다."
 date: 2026-06-09 15:04:06 +0900
 categories: [Kotlin, WebFlux]
 tags: [Kotlin, WebFlux, Coroutine, Reactor, Spring, coroutine-adapter]
