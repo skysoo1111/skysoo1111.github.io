@@ -143,11 +143,13 @@ layout: default
                 {%- endif -%}
             </div>
 
-            {%- assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq | sort -%}
+            {%- comment -%} site.posts가 최신순이므로 uniq만 적용하면 카테고리별 최근 포스트 기준 정렬이 된다 {%- endcomment -%}
+            {%- assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq -%}
+            {%- assign category_limit = 10 -%}
             {%- if categories.size > 0 -%}
             <div class="sidebar-section">
                 <h3 class="sidebar-section-title">Categories</h3>
-                <ul class="sidebar-category-list">
+                <ul class="sidebar-category-list" id="category-list">
                     {%- for category in categories -%}
                     {%- assign cat_count = 0 -%}
                     {%- for post in site.posts -%}
@@ -155,12 +157,19 @@ layout: default
                     {%- assign cat_count = cat_count | plus: 1 -%}
                     {%- endif -%}
                     {%- endfor -%}
-                    <li>
+                    <li{% if forloop.index > category_limit %} class="cat-extra" hidden{% endif %}>
                         <span class="cat-name">{{ category }}</span>
                         <span class="cat-count">{{ cat_count }}</span>
                     </li>
                     {%- endfor -%}
                 </ul>
+                {%- if categories.size > category_limit -%}
+                {%- assign category_hidden = categories.size | minus: category_limit -%}
+                <button type="button" class="cat-toggle" id="category-toggle" aria-expanded="false"
+                    aria-controls="category-list" data-label-more="더보기 (+{{ category_hidden }})" data-label-less="접기">
+                    더보기 (+{{ category_hidden }})
+                </button>
+                {%- endif -%}
             </div>
             {%- endif -%}
 
@@ -242,5 +251,19 @@ layout: default
         .catch(function () { /* 검색 인덱스 로드 실패 시 기본 목록 유지 */ });
 
     input.addEventListener('input', render);
+})();
+
+(function () {
+    var toggle = document.getElementById('category-toggle');
+    if (!toggle) return;
+    var extras = document.querySelectorAll('#category-list .cat-extra');
+    toggle.addEventListener('click', function () {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        for (var i = 0; i < extras.length; i++) {
+            extras[i].hidden = expanded;
+        }
+        toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        toggle.textContent = expanded ? toggle.dataset.labelMore : toggle.dataset.labelLess;
+    });
 })();
 </script>

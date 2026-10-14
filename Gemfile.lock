@@ -29,6 +29,7 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-seo-tag (2.8.0)
@@ -70,12 +71,14 @@ GEM
     wdm (0.1.1)
 
 PLATFORMS
+  arm64-darwin-25
   x86_64-darwin-20
 
 DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll (~> 3.9.2)
   jekyll-feed (~> 0.6)
+  jekyll-paginate (~> 1.1)
   kramdown-parser-gfm
   minima (~> 2.0)
   tzinfo (~> 1.2)

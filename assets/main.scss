@@ -255,6 +255,30 @@ body {
         border-radius: 10px;
         font-weight: 500;
     }
+
+    li[hidden] {
+        display: none;
+    }
+}
+
+.cat-toggle {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: none;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+
+    &:hover {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
 }
 
 .sidebar-recent-list {
@@ -864,6 +888,32 @@ body {
     font-weight: 800;
     letter-spacing: -0.03em;
     margin-bottom: 32px;
+}
+
+.post-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    text-align: right;
+}
+
+.post-edit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+
+    &:visited {
+        color: var(--color-text-muted);
+    }
+
+    &:hover {
+        color: var(--color-primary);
+    }
 }
 
 // ============================================================

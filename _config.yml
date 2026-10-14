@@ -16,12 +16,14 @@
 title: soo's blog
 email: skysoo1111@naver.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  백엔드 개발자 박성수의 기술 블로그 · Developer Notes & Technical Insights
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://skysoo1111.github.io" # the base hostname & protocol for your site
 github_username:  skysoo1111
+
+# 포스트 하단 "GitHub에서 수정" 링크가 가리킬 저장소/브랜치
+github_repo: skysoo1111/skysoo1111.github.io
+github_branch: master
 
 # Build settings
 markdown: kramdown

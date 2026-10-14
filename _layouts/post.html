@@ -26,4 +26,18 @@ layout: default
     <div class="post-content" itemprop="articleBody">
         {{ content }}
     </div>
+
+    {%- if site.github_repo -%}
+    <footer class="post-footer">
+        <a href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch | default: 'master' }}/{{ page.path }}"
+            class="post-edit-link" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            GitHub에서 수정
+        </a>
+    </footer>
+    {%- endif -%}
 </article>
