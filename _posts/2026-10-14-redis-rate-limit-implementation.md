@@ -6,14 +6,16 @@ date: 2026-10-14 11:34:30 +0900
 categories: [Redis, Backend]
 tags: [Redis, Rate Limit, Lua, Sliding Window, Token Bucket]
 image:
-  path: https://source.unsplash.com/featured/?redis,ratelimit
-  alt: Redis rate limit 구현
+  path: /assets/img/posts/redis-rate-limit-implementation/image-20261013-001520.png
+  alt: Redis INCR 원자성과 Lua 스크립트
 ---
 
 ## 🙋‍♂️ Redis의 rate limit 구현을 알아보기 전에 다음 질문에 답해보자.
 
 - 현재 값이 99인 키가 있다고 가정하고 아래와 같은 명령을 수행하면 최종 값은 뭐가 될까?
-    - GET(A) → GET(B) → INCR(A) → INCR(B) 했을 때의 값?
+    - ![현재 값이 99인 키](/assets/img/posts/redis-rate-limit-implementation/image-20261013-004038.png)
+
+      GET(A) → GET(B) → INCR(A) → INCR(B) 했을 때의 값?
 
 
 ## 📚 Redis의 rate limit 구현 알아보기
@@ -34,7 +36,9 @@ Redis로 rate limit을 구현하는 방식은 크게 네 가지가 있다.
 
 ### 2. 구현 방식
 
-1. Fixed Window
+<ol start="1"><li>Fixed Window</li></ol>
+
+![Fixed Window 동작](/assets/img/posts/redis-rate-limit-implementation/image-20261013-010854.png)
 
 - 위 동작처럼 INCR + EXPIRE NX를 수행하면 원자적으로 처리 가능
 - 만약 GET 먼저 해서 판단을 하면  Lua가 필요하다
@@ -44,12 +48,17 @@ GET → 99 → 앱: 99 < 100 → INCR
           ↑ 이 사이에 다른 요청이 끼어듦
 ```
 
-1. Sliding Log
+<ol start="2"><li>Sliding Log</li></ol>
 
-1. Sliding Counter
+![Sliding Log 동작](/assets/img/posts/redis-rate-limit-implementation/image-20261013-010938.png)
 
+<ol start="3"><li>Sliding Counter</li></ol>
 
-1. Token Bucket / GCRA
+![Sliding Counter 동작](/assets/img/posts/redis-rate-limit-implementation/image-20261013-010959.png)
+
+<ol start="4"><li>Token Bucket / GCRA</li></ol>
+
+![Token Bucket / GCRA 동작](/assets/img/posts/redis-rate-limit-implementation/image-20261013-011016.png)
 
 
 ---
@@ -57,6 +66,8 @@ GET → 99 → 앱: 99 < 100 → INCR
 ### 3. 왜 Lua가 필요한가
 
 `INCR` 하나는 원래 원자적입니다. 문제는 **여러 명령을 이어서 실행할 때** 생깁니다.
+
+![INCR 원자성과 여러 명령 조합의 레이스](/assets/img/posts/redis-rate-limit-implementation/image-20261013-001520.png)
 
 Redis는 `INCR` 하나를 처리할 때 값 읽기, +1, 쓰기를 메인 스레드에서 쉬지 않고 한 번에 끝냅니다.
 
